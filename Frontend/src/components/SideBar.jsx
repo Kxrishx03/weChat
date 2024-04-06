@@ -63,7 +63,7 @@ export function SideBar(){
         <div className='chats_sidebar'>
           {
             conversations.map((conversation)=>{
-              return <Conversation props={conversation} />
+              return <Conversation props={conversation} key={conversation.name}/>
             })
           }
         </div>
