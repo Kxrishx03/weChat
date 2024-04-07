@@ -26,6 +26,9 @@ export function ChatArea({props}){
             <div className="chat-area-convo">
              <MessageOther />
              <MessageYou />
+             <MessageOther />
+             <MessageYou />
+             
             </div>
 
             <div className="chat-area-send">

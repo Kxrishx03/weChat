@@ -1,6 +1,7 @@
 
 *{
     margin: 0;
+    padding: 0;
     
 }
 .app_container{
@@ -16,7 +17,7 @@
 .main_container{
     background-color:#f4f5f8 ;
     width: 90%;
-    height: 90vh;
+    min-height: 90vh;
     display: flex;
     border-radius: 20px;
 }
@@ -131,9 +132,12 @@
     flex-direction: column;
 }
 
+
+/* HEADER*/
 .chat-area-header{
 
     display: grid;
+    flex: 1;
     grid-template-columns: 32px auto auto;
     grid-template-rows: auto auto;
     column-gap: 9px;
@@ -191,7 +195,7 @@
     color: rgba(0,0,0,0.54);
 }
 
-
+/* Conversations*/
 
 .chat-area-convo{
     flex: 1;
@@ -213,16 +217,15 @@
 
 .other-lstmssg{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     padding-left: 10px ;
 }
 
 .other-lstseen{
     justify-self: flex-end;
+    align-self:flex-end;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.75rem;
-    
-    padding-left: 200px;
     color: rgba(0,0,0,0.54);
 }
 
@@ -241,6 +244,7 @@
     grid-area: 1/2/2/4;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
+    font-size: 0.75rem;
     color: rgba(0,0,0,0.54);
     /*new*/
     padding-left: 10px;
@@ -289,6 +293,7 @@
 
 .self-timeStamp{
     justify-self: flex-end;
+    align-self: flex-end;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.75rem;
     
@@ -296,9 +301,9 @@
     color: rgba(0,0,0,0.54);
 }
 
-
-
+/*SEND AREA*/
 .chat-area-send{
+    flex: 1;
     background-color: #fff;
     border-radius: 20px;
     min-width: 32px;

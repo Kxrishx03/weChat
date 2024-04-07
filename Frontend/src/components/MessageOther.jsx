@@ -4,13 +4,7 @@ export function MessageOther(){
           message:"This is sample..",
           otherTimeStamp:"23:00"
     };
-
-    var props = {
-        name:"You",
-        message:"This is sample message..",
-        otherTimeStamp:"23:00"
-  };
-      
+     
     return(
 
         <div className="other-message-cont">   
@@ -27,13 +21,9 @@ export function MessageOther(){
            <p className="other-lstmssg">
            {props.message}
            </p>
-           
-             <div>
              <p className="other-lstseen">
                 {props.otherTimeStamp}
             </p>
-             </div>
-            
          </div>
 
            
