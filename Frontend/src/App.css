@@ -10,6 +10,8 @@
     display:flex;
     justify-content: center;  
     align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
 }
 
 /*Main-container:  css start*/
@@ -17,9 +19,11 @@
 .main_container{
     background-color:#f4f5f8 ;
     width: 90%;
-    min-height: 90vh;
+    height: 90vh;
     display: flex;
     border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    
 }
 
 
@@ -29,6 +33,7 @@
     flex: 0.3;  
     display: flex;
     flex-direction: column;
+   
 }
 
 
@@ -39,6 +44,7 @@
     margin:10px ;
     background-color: #fff;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .search_sidebar{
@@ -48,13 +54,14 @@
     margin: 10px;;
     background-color: #fff;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .srh-box{
     border: none;
     outline-width:0px;
     outline-style: none;
-    font-size:1.5 rem;
+    font-size:1.9 rem;
     margin: 9px;
     text-align: justify;
 }
@@ -66,6 +73,12 @@
     background-color: #fff;
     border-radius: 20px;
     flex: 1;
+    overflow: scroll;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.chats_sidebar::-webkit-scrollbar{
+      display: none;
 }
 
 .conversation-cont{
@@ -137,7 +150,6 @@
 .chat-area-header{
 
     display: grid;
-    flex: 1;
     grid-template-columns: 32px auto auto;
     grid-template-rows: auto auto;
     column-gap: 9px;
@@ -146,6 +158,7 @@
     border-radius: 20px;
 
     background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
    
 }
 
@@ -202,7 +215,14 @@
     background-color: #fff;
     border-radius: 20px;
     padding: 5px 5px;
-    margin:10px ;   
+    margin:10px ; 
+    overflow: scroll;  
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    
+}
+
+.chat-area-convo::-webkit-scrollbar{
+    display: none;
 }
 
 .other-message-cont{
@@ -303,7 +323,7 @@
 
 /*SEND AREA*/
 .chat-area-send{
-    flex: 1;
+
     background-color: #fff;
     border-radius: 20px;
     min-width: 32px;
@@ -311,6 +331,7 @@
     justify-content: space-between;
     padding: 5px 5px ;
     margin:10px ; 
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .message-bar{
@@ -321,4 +342,86 @@
     margin: 9px;
     flex: 0.8;
     text-align: justify;
+}
+
+
+
+/*Welcome Page CSS start*/
+
+.welcome-logo{
+    height: 20vw;
+}
+
+.welcome-cont{
+    display: flex;
+    flex: 0.7;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0,0,0,0.54);
+    border-bottom: 5px solid #63d7b0;
+    border-top: 5px solid #63d7b0;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+/*GROUPS CSS*/
+
+.createGroups-cont{
+    flex: 0.7;
+    padding: 20px 10px;
+    margin: 10px;
+    align-self: center;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+
+
+/**Login CSS*/
+
+.login-cont{
+    height: 90vh;
+    width: 90vw;
+    background-color: #f4f5f8;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/*1az!QqA*/
+.img-cont{
+    flex: 0.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box{
+     flex: 0.7;
+     background-color: #fff;
+     border-bottom: 5px solid #63d7b0;
+     border-top: 5px solid #63d7b0;
+     border-radius: 20px;
+     margin: 10px;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     color: #63d7b0;
+     font-weight: bolder;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     gap:20px ;
+}
+
+.login-text{
+    margin-bottom: 20px;
+    font-size:2rem ;
+    
 }

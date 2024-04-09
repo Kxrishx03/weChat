@@ -28,6 +28,14 @@ export function ChatArea({props}){
              <MessageYou />
              <MessageOther />
              <MessageYou />
+             <MessageOther />
+             <MessageYou />
+             <MessageOther />
+             <MessageYou />
+             <MessageOther />
+             <MessageYou />
+             <MessageOther />
+             <MessageYou />
              
             </div>
 
