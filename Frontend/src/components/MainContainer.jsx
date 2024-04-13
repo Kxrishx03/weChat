@@ -2,6 +2,7 @@ import { SideBar } from './SideBar';
 import { ChatArea } from './ChatArea';
 import { Welcome } from './Welcome';
 import { CreateGroups } from './CreateGroups';
+import { OnlineUsers } from './OnlineUsers';
 import { useState } from 'react';
 export function MainContainer(){
 
@@ -17,7 +18,8 @@ export function MainContainer(){
             <SideBar/>
             {/*<CreateGroups />*/}
            {/* <Welcome />*/}
-           <ChatArea props={conversation} /> 
+           {/* <ChatArea props={conversation} /> */}
+           <OnlineUsers />
           
            </div> 
         

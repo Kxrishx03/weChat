@@ -393,6 +393,7 @@
     border-radius: 20px;
     display: flex;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 }
 
 /*1az!QqA*/
@@ -420,8 +421,35 @@
      gap:20px ;
 }
 
-.login-text{
-    margin-bottom: 20px;
-    font-size:2rem ;
+
+/*ONLINE USERS CSS*/
+
+.list-cont{
+    flex: 0.7;
+  
+}
+
+.list-cont-header{
+    display: flex;
+    justify-content: flex-start; 
+    padding: 5px 5px;
+    margin:10px ;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #fff;
     
+}
+
+.list-icon{
+    width: 32px;
+    height: 32px;
+    padding: 0px 5px 0px 5px;
+}
+
+.list-title{
+    font-size: 0.9rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0,0,0,0.54);
+    font-weight: bolder;
+    padding-top: 4px;
 }
