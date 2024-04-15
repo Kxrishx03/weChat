@@ -17,8 +17,8 @@ export function MainContainer(){
            <div className="main_container">
             <SideBar/>
             {/*<CreateGroups />*/}
-           {/* <Welcome />*/}
-           {/* <ChatArea props={conversation} /> */}
+             {/*<Welcome />*/}
+           {/* <ChatArea props={conversation} />*/}  
            <OnlineUsers />
           
            </div> 
