@@ -7,6 +7,7 @@ import { ChatArea } from './components/ChatArea';
 import { CreateGroups } from './components/CreateGroups';
 import { Users} from './components/Users';
 import { Groups } from './components/Groups';
+import { OnlineUsers } from './components/OnlineUsers';
 function App() {
 
 
@@ -20,6 +21,7 @@ function App() {
             <Route path='welcome' element={<Welcome/>}/>
             <Route path='chat' element={<ChatArea/>} />
             <Route path='users' element={<Users/>}/>
+            <Route path='online-users' element={<OnlineUsers/>}/>
             <Route path='groups' 
               element={<Groups />}
             />

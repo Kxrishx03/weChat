@@ -7,6 +7,7 @@ import NightlightIcon from '@mui/icons-material/Nightlight';
 import SearchIcon from '@mui/icons-material/Search';
 import { Conversation } from './Conversation';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export function SideBar(){
 
@@ -28,6 +29,8 @@ export function SideBar(){
     }
   ]);
 
+  const navigate = useNavigate();
+
     return(
         <div className="side-bar-container">
         
@@ -38,13 +41,21 @@ export function SideBar(){
            </IconButton>
            </div>
            <div className='other_icons'>
-           <IconButton>
+           <IconButton onClick={()=>{
+            navigate('online-users');
+           }}>
            <PersonAddIcon />
            </IconButton> 
-           <IconButton>
+
+           <IconButton onClick={()=>{
+            navigate('groups');
+           }}>
            <GroupAddIcon />
            </IconButton>
-           <IconButton>
+
+           <IconButton onClick={()=>{
+            navigate('create-groups');
+           }} >
             <AddCircleIcon />
            </IconButton>
            <IconButton>
@@ -63,7 +74,9 @@ export function SideBar(){
         <div className='chats_sidebar'>
           {
             conversations.map((conversation)=>{
-              return <Conversation props={conversation} key={conversation.name}/>
+              return <Conversation props={conversation} key={conversation.name}
+              
+              />
             })
           }
         </div>

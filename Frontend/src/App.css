@@ -89,6 +89,17 @@
     padding: 5px;
     margin: 5px;
     border-radius: 20px;
+    transition: 0.5s;
+}
+
+.conversation-cont:hover{
+    background-color: #dddedc;
+
+}
+
+.conversation-cont:active{
+    background-color: #fff;
+
 }
 
 .con-icon{
