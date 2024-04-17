@@ -4,6 +4,7 @@ import { Welcome } from './Welcome';
 import { CreateGroups } from './CreateGroups';
 import { OnlineUsers } from './OnlineUsers';
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 export function MainContainer(){
 
     const [conversation,setConversation]=useState({
@@ -16,8 +17,9 @@ export function MainContainer(){
         
            <div className="main_container">
             <SideBar/>
+            <Outlet />
+            
             {/*<CreateGroups />*/}
-             {/*<Welcome />*/}
            {/* <ChatArea props={conversation} />*/}  
            <OnlineUsers />
           

@@ -4,6 +4,9 @@ import { MainContainer } from './components/MainContainer'
 import {Routes,Route} from 'react-router-dom';
 import { Welcome } from './components/Welcome';
 import { ChatArea } from './components/ChatArea';
+import { CreateGroups } from './components/CreateGroups';
+import { Users} from './components/Users';
+import { Groups } from './components/Groups';
 function App() {
 
 
@@ -16,6 +19,14 @@ function App() {
             <Route  path='app' element={<MainContainer />}>
             <Route path='welcome' element={<Welcome/>}/>
             <Route path='chat' element={<ChatArea/>} />
+            <Route path='users' element={<Users/>}/>
+            <Route path='groups' 
+              element={<Groups />}
+            />
+            <Route path='create-groups' 
+              element={<CreateGroups />}
+            />
+            
             </Route>
           </Routes>
            
