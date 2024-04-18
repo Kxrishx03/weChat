@@ -1,8 +1,21 @@
+.dark{
+    background-color: #2d3941 !important;
+    color: #f4f5f8 !important;
+    
+}
+
+.light_dark{
+    background-color:#5B6871 !important;
+    color: #f4f5f8 !important;
+}
+
+.title{
+    color: #f4f5f8 !important;
+}
 
 *{
     margin: 0;
-    padding: 0;
-    
+    padding: 0;  
 }
 .app_container{
     background-color: #dddedc;
@@ -200,6 +213,8 @@
     grid-area: 1/2/2/4;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
+    align-self: center;
+    justify-self: center;
     color: rgba(0,0,0,0.54);
 }
 

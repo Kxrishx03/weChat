@@ -1,16 +1,14 @@
 import { SideBar } from './SideBar';
-import { ChatArea } from './ChatArea';
-import { Welcome } from './Welcome';
-import { CreateGroups } from './CreateGroups';
-import { OnlineUsers } from './OnlineUsers';
-import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import {useSelector} from 'react-redux';
+
 export function MainContainer(){
 
-   
+    const lighTheme = useSelector((state) => state.themeKey);
     return(
         
-           <div className="main_container">
+           <div 
+           className={'main_container' + ((lighTheme)?"":" light_dark")}>
             <SideBar/>
             <Outlet />
             
