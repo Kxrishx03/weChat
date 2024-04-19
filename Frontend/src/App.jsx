@@ -8,6 +8,7 @@ import { CreateGroups } from './components/CreateGroups';
 import { Users} from './components/Users';
 import { Groups } from './components/Groups';
 import { OnlineUsers } from './components/OnlineUsers';
+import { Signup } from './components/Signup';
 function App() {
 
 
@@ -15,9 +16,10 @@ function App() {
     <>
       <div className='app_container'>
           <Routes >
-            <Route  path="/" element={<Login/>}/>
+            <Route  path="/" element={<Signup/>}/>
+            <Route  path="login" element={<Login/>}/>
 
-            <Route  path='app' element={<MainContainer />}>
+            <Route path='app' element={<MainContainer />}>
             <Route path='welcome' element={<Welcome/>}/>
             <Route path='chat' element={<ChatArea/>} />
             <Route path='users' element={<Users/>}/>

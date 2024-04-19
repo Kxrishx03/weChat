@@ -1,5 +1,6 @@
 const express = require('express');
-require('dotenv').config()
+require('dotenv').config();
+const mongoose = require('mongoose')
 
 const PORT = process.env.PORT;
 
@@ -13,6 +14,18 @@ app.get('/',(req,res)=>{
 
  
 
-app.listen(PORT,()=>{
-    console.log("RUNNING ON " + PORT);
-});
+//connect to db
+mongoose.connect(process.env.MONGO_URI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: 'liveChatAppDB',
+  })
+.then(()=>{
+    console.log("Connection succesfull");
+    app.listen(PORT,()=>{
+        console.log("Running on : " + PORT);
+    })
+})
+.catch((e)=>{
+    console.log("Error occurred: " + e);
+})
