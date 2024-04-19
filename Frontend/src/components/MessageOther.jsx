@@ -1,4 +1,7 @@
+import {useSelector} from 'react-redux';
+
 export function MessageOther(){
+    const lighTheme = useSelector((state) => state.themeKey);
     var props = {
           name:"OtherUser",
           message:"This is sample..",
@@ -9,7 +12,7 @@ export function MessageOther(){
 
         <div className="other-message-cont">   
          <div>
-         <p className="other-icon">
+         <p className={'other-icon' + ((lighTheme)?"":" light_dark") } >
             {props.name[0]}
          </p>
          </div>
