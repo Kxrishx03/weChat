@@ -1,4 +1,4 @@
-const { User } = require('../models/UserModels');
+const { User } = require('../models/UserModel.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const validator = require('validator');
@@ -11,17 +11,34 @@ const createToken = (_id) => {
 //LOGIN CONTROLLER
  const loginUser = async (req,res) =>{
 
-    // const {username,password} = req.body;
+    const {username,password} = req.body;
 
-    // try{
-    //     const user = await User.login(username,password);
-    //     const token = createToken(user._id);
-    //     res.status(200).json({username,token});
+     //CHECK FOR FIELDS
+     if(!username || !password )
+     {  
+          res.send(400);
+          throw Error("All fields must be filled");
+     } 
 
-    // }catch(Error){
+      const user = await User.findOne({username});
 
-    //       res.status(400).json({error: Error.message});
-    // }
+      if(!user){
+
+        res.send(400);
+        throw Error("User doesnot exits");
+
+      }
+
+      const match = await bcrypt.compare(password,user.password);
+
+      if(!match){
+          res.send(400);
+          throw Error("Wrong Password");
+      }
+
+    const token = createToken(user._id);
+
+    res.status(200).json({username,token}); 
    
 }
 
@@ -33,7 +50,7 @@ const createToken = (_id) => {
     //CHECK FOR FIELDS
     if(!username || !password || !email)
     {  
-        res.send(400);
+         res.send(400);
          throw Error("All fields must be filled");
     } 
 
@@ -44,6 +61,7 @@ const createToken = (_id) => {
         
     // Password CHECK
     if(!validator.isStrongPassword(password)){
+        res.send(400);
         throw Error("Weak Password");
     }
      
