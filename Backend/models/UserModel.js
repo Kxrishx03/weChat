@@ -15,8 +15,10 @@ const userSchema = new Schema({
     password:{
         type:String,
         required:true
-    },
-    isGroupAdmin: { type: Boolean }
+    }
+    // isGroupAdmin: { type: Boolean }
+},{
+    timestamps:true
 });
 
 
