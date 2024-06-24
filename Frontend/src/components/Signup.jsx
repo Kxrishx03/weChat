@@ -8,14 +8,11 @@ import axios from 'axios'
 
 
 export function Signup(){
-    
-  const [showLogin, setShowLogin] = useState(false);
-  const [loading, setLoading] = useState(false);
 
+  const [loading, setLoading] = useState(false);
   const [logInStatus, setLogInStatus] = useState("");
   const [signInStatus, setSignInStatus] = useState("");
   const [data,setData] = useState({name:"",email:"",password:""});
-
   const navigate =useNavigate() ;
 
   function handleData(e){
@@ -35,9 +32,9 @@ export function Signup(){
       const response = await axios.post("http://localhost:3000/user/signup/",data);
       console.log(response.data);
       // setSignInStatus({ msg: "Success", key: Math.random() });
+      toast.success('signed up successfully')
       navigate("/app/welcome");
-      // localStorage.setItem("userData", JSON.stringify(response));
-      setLoading(false);
+      localStorage.setItem("userData", response.data.token);
     } catch (error) {
       console.log(error);
       if (error.response.status === 405) {
@@ -52,6 +49,7 @@ export function Signup(){
           key: Math.random(),
         });
       }
+    }finally{
       setLoading(false);
     }
   };
