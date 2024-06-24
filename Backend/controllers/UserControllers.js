@@ -45,24 +45,23 @@ const createToken = (_id) => {
 
 //SIGNUP CONTROLLER
  const signupUser = async  (req,res) =>{
-    const { username,email, password } = req.body;
+    const { name:username,email, password } = req.body;
+    console.log(username)
 
     //CHECK FOR FIELDS
     if(!username || !password || !email)
     {  
-         res.send(400);
-         throw Error("All fields must be filled");
+      return res.status(404).json({ error: "All fields must be filled"})
     } 
 
    // Email CHECK
     if(!validator.isEmail(email)){
-    throw Error("Invalid username");
+      return res.status(400).json({ error: "Invalid email" });
     }
         
     // Password CHECK
     if(!validator.isStrongPassword(password)){
-        res.send(400);
-        throw Error("Weak Password");
+      return res.status(400).json({ error: "Weak password" });
     }
      
     //Pre-existing user
@@ -77,8 +76,7 @@ const createToken = (_id) => {
     const usernameExists = await User.findOne({username});
 
     if(usernameExists){
-      res.status(400);  
-    throw Error("Username already in use");
+      return res.status(400).json({ error: "Email already in use" })
     }
     
 
@@ -91,7 +89,7 @@ const createToken = (_id) => {
    
     const token = createToken(user._id);
 
-    res.status(200).json({username,token}); 
+    return res.status(200).json({username,token}); 
    
 }
 
