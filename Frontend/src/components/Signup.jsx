@@ -4,7 +4,8 @@ import { Button } from "@mui/material"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
-
+import { useNavigate } from "react-router-dom";
+import  axios from "axios";
 export function Signup(){
     
   
@@ -14,8 +15,13 @@ export function Signup(){
   const [data,setData] = useState({name:"",email:"",password:""});
 
   const navigate = useNavigate();
-
-
+  const handleData = (e) => {
+    e.preventDefault();
+    setData((prev)=>({
+      ...prev, 
+      [e.target.name]:e.target.value
+    }))
+  };
  const signupHandler = async (e) => {
     try {
       
@@ -26,18 +32,6 @@ export function Signup(){
       localStorage.setItem("userData", response.data.token);
     } catch (error) {
       console.log(error);
-      if (error.response.status === 405) {
-        setLogInStatus({
-          msg: "User with this email ID already Exists",
-          key: Math.random(),
-        });
-      }
-      if (error.response.status === 406) {
-        setLogInStatus({
-          msg: "User Name already Taken, Please take another",
-          key: Math.random(),
-        });
-      }
       setLoading(false);
     }
   };
@@ -50,15 +44,16 @@ export function Signup(){
             </div>
             <div className="login-box">
               <p className="login-text">Create your account </p>
-              <TextField className="username"  label="Enter username" variant="standard" />
-              <TextField className="username"  label="Enter email" variant="standard" />
+              <TextField onChange={(e)=>handleData(e)} value={data.username} name="username" className="username"  label="Enter username" variant="standard" />
+              <TextField onChange={(e)=>handleData(e)} value={data.email} name="email" className="username"  label="Enter email" variant="standard" />
               <TextField
+              onChange={(e)=>handleData(e)} value={data.password} name="password"
               type="password"
               label="Password" variant="standard" 
               autoComplete="current-password"
               className="password"
               />
-              <Button variant="outlined" className="login-btn">Signup</Button>
+              <Button variant="outlined" className="login-btn" onClick={signupHandler}>Signup</Button>
               <p className="login-text">Already have an account? <Link to={'/login'}>
               Login
               </Link> </p>
