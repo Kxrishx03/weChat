@@ -1,51 +1,48 @@
 import logo from "./icons/logo.png";
 import {TextField} from "@mui/material";
 import {Button} from "@mui/material"
-import {Link} from 'react-router-dom';
-
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Toaster from "./Toaster";
+import { useNavigate, Link } from "react-router-dom";
+import toast from 'react-hot-toast';
 
 export function Login(){
 
-  const [showLogin, setShowLogin] = useState(false);
+  
   const [data, setData] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
-
-  const [logInStatus, setLogInStatus] = React.useState("");
-  const [signInStatus, setSignInStatus] = React.useState("");
+ 
 
   const navigate = useNavigate();
 
-  const changeHandler = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+  const handleData = (e) => {
+    e.preventDefault();
+    setData((prev)=>({
+      ...prev, 
+      [e.target.name]:e.target.value
+    }))
   };
 
-  const loginHandler = async (e) => {
+  const loginHandler = async () => {
     setLoading(true);
     console.log(data);
     try {
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
-
+    
       const response = await axios.post(
         "http://localhost:8080/user/login/",
-        data,
-        config
+        data
       );
 
-      console.log("Login:", response);
-      setLogInStatus({ msg: "Success", key: Math.random() });
-      setLoading(false);
-      localStorage.setItem("userData", JSON.stringify(response));
+      console.log("Login:", response.data);
+      
+    
+      localStorage.setItem("userData", response.data.token);
       navigate("/app/welcome");
+      toast.success('Logged in');
     } catch (error) {
       console.error(error);
-      setLoading(false);
+      
+    } finally{
+      setLoading(false)
     }
 
   };
@@ -57,14 +54,15 @@ export function Login(){
             </div>
             <div className="login-box">
               <p className="login-text">Login to your account </p>
-              <TextField className="username"  label="Enter username" variant="standard" />
+              <TextField className="username"  label="Enter username" variant="standard" onChange={(e)=>handleData(e)} value={data.username} name="username" />
               <TextField  
+              onChange={(e)=>handleData(e)} value={data.password} name="password"
               type="password"
               label="Password" variant="standard" 
               autoComplete="current-password"
               className="password"
               />
-              <Button variant="outlined" className="login-btn">Login</Button>
+              <Button onClick={loginHandler}variant="outlined" className="login-btn">Login</Button>
               <p className="login-text">Don't have an account? <Link to={'/'}>
               Sign Up
               </Link> </p>

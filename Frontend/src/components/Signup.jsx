@@ -3,41 +3,27 @@ import {TextField} from "@mui/material";
 import { Button } from "@mui/material"
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import toast from 'react-hot-toast';
 
 export function Signup(){
     
-  const [showLogin, setShowLogin] = useState(false);
+  
+  const [logInStatus, setLogInStatus] = useState("");
+  const [signInStatus, setSignInStatus] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const [logInStatus, setLogInStatus] = React.useState("");
-  const [signInStatus, setSignInStatus] = React.useState("");
   const [data,setData] = useState({name:"",email:"",password:""});
 
   const navigate = useNavigate();
 
 
  const signupHandler = async (e) => {
-    setLoading(true);
-    console.log(data);
     try {
-      const config = {
-        headers: {
-          "Content-type": "application/json",
-        },
-      };
-
-      const response = await axios.post(
-        "http://localhost:8080/user/register/",
-        data,
-        config
-      );
-
-      console.log(response);
-      setSignInStatus({ msg: "Success", key: Math.random() });
+      
+      const response = await axios.post("http://localhost:3000/user/signup/",data);
+      console.log(response.data);
+      toast.success('signed up successfully')
       navigate("/app/welcome");
-      localStorage.setItem("userData", JSON.stringify(response));
-      setLoading(false);
+      localStorage.setItem("userData", response.data.token);
     } catch (error) {
       console.log(error);
       if (error.response.status === 405) {
