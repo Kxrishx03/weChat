@@ -10,6 +10,5 @@ import { createSlice } from '@reduxjs/toolkit';
     }
  });
 
-
  export const {toggleTheme} = themeSlice.actions;
  export default themeSlice.reducer;

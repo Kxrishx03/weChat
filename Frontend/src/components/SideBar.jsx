@@ -10,7 +10,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
-import { toggleTheme } from '../Features/themeSlice';
+import { toggleTheme } from '../redux/themeSlice';
 
 export function SideBar(){
 

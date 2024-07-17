@@ -11,8 +11,6 @@ app.use(express.json());
 const cors = require("cors");
 app.use(cors());
 
-app.use('/user',userRoutes);
-
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI,{
@@ -27,3 +25,5 @@ mongoose.connect(process.env.MONGO_URI,{
 .catch((e)=>{
     console.log("Error occurred: " + e);
 })
+
+app.use('/user',userRoutes);
